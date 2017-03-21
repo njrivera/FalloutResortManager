@@ -113,7 +113,10 @@
             this.Controls.Add(this.powerBox);
             this.Controls.Add(this.waterBox);
             this.Controls.Add(this.roomBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "RoomEntry";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Room Entry";
             this.ResumeLayout(false);
             this.PerformLayout();

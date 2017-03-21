@@ -26,9 +26,9 @@ namespace AANDCorp
             {
                 RationsTA.daily(int.Parse(foodBox.Text), int.Parse(tenantBox.Text));
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Invalid Input");
             }
             finally
             {
