@@ -21,6 +21,7 @@ namespace AANDCorp
         {
             try
             {
+
                 FalloutShelterDBDataSet.UsersDataTable userTable = new FalloutShelterDBDataSet.UsersDataTable();
                 usersTableAdapter.GetUser(userTable, userBox.Text, passwordBox.Text);
                 DataRow user = userTable.Rows[0];
@@ -32,16 +33,17 @@ namespace AANDCorp
                         av.ShowDialog();
                         break;
                     case "watch":
-                        RoomEntry re = new RoomEntry((int)user[userTable.EidColumn]);
+                        RoomEntry re = new RoomEntry();
                         re.ShowDialog();
                         break;
                     case "fsa":
-                        FoodEntry fe = new FoodEntry((int)user[userTable.EidColumn]);
+                        FoodEntry fe = new FoodEntry();
                         fe.ShowDialog();
                         break;
                     default:
                         break;
                 }
+
             }
             catch
             {

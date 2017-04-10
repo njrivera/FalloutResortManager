@@ -28,56 +28,33 @@ namespace AANDCorp
         {
             if (searchBox.Text == "")
                     usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
-            else {
-                switch (searchByBox.SelectedItem.ToString())
-                {
-                    case "Employee Id":
-                        int id;
-                        if (int.TryParse(searchBox.Text, out id))
-                            usersTableAdapter.SearchByEid(falloutShelterDBDataSet.Users, id);
-                        break;
-                    case "Username":
-                        usersTableAdapter.SearchByUsername(falloutShelterDBDataSet.Users, searchBox.Text);
-                        break;
-                    default:
-                        break;
-                }
-            }
+            else
+                    usersTableAdapter.SearchUser(falloutShelterDBDataSet.Users, searchBox.Text);
         }
 
         private void createUserButton_Click(object sender, EventArgs e)
         {
-            int id;
-            if (int.TryParse(crtEidBox.Text, out id))
+            if (crtPassBox.Text != confPassBox.Text)
             {
-                if(tenantsTableAdapter.GetTenant(id).Count == 0)
-                {
-                    MessageBox.Show("Employee does not exist");
-                    resetBoxes();
-                }
-                else if(crtPassBox.Text != confPassBox.Text)
-                {
-                    MessageBox.Show("Passwords don't match");
-                    resetBoxes();
-                }
-                else if(crtRoleBox.Text != "admin"
-                    && crtRoleBox.Text != "watch"
-                    && crtRoleBox.Text != "fsa")
-                {
-                    MessageBox.Show("Role does not exist");
-                    resetBoxes();
-                }
-                else
-                {
-                    usersTableAdapter.create(id, crtRoleBox.Text, crtUserBox.Text, crtPassBox.Text);
-                    usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
-                }
+                MessageBox.Show("Passwords don't match");
+                resetBoxes();
+            }
+            else if (crtRoleBox.Text != "admin"
+                && crtRoleBox.Text != "watch"
+                && crtRoleBox.Text != "fsa")
+            {
+                MessageBox.Show("Role does not exist");
+                resetBoxes();
+            }
+            else
+            {
+                usersTableAdapter.create(crtRoleBox.Text, crtUserBox.Text, crtPassBox.Text);
+                usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
             }
         }
 
         private void resetBoxes()
         {
-            crtEidBox.Clear();
             crtUserBox.Clear();
             crtPassBox.Clear();
             confPassBox.Clear();
@@ -90,7 +67,7 @@ namespace AANDCorp
             {
                 if (MessageBox.Show("Are you sure?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    usersTableAdapter.delete(int.Parse(delEidBox.Text));
+                    usersTableAdapter.delete(delUserBox.Text);
                     usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
                 }
             }

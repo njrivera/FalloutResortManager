@@ -77,7 +77,7 @@ namespace AANDCorp
             if (tenantsTableAdapter.GetTenant(int.Parse(editTenIdBox.Text)).Count != 0)
                 if (MessageBox.Show("Are you sure?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    usersTableAdapter.delete(int.Parse(editTenIdBox.Text));
+                    usersTableAdapter.delete(editTenIdBox.Text);
                     rationsTableAdapter.delete(int.Parse(editTenIdBox.Text));
                     tenantsTableAdapter.delete(int.Parse(editTenIdBox.Text));
                     tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);

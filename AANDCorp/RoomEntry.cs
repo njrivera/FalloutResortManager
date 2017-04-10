@@ -12,7 +12,7 @@ namespace AANDCorp
 {
     public partial class RoomEntry : Form
     {
-        public RoomEntry(int user)
+        public RoomEntry()
         {
             InitializeComponent();
         }

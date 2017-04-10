@@ -14,7 +14,7 @@ namespace AANDCorp
     {
         private FalloutShelterDBDataSetTableAdapters.RationsTableAdapter RationsTA;
 
-        public FoodEntry(int user)
+        public FoodEntry()
         {
             InitializeComponent();
             RationsTA = new FalloutShelterDBDataSetTableAdapters.RationsTableAdapter();

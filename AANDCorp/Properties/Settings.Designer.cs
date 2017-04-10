@@ -26,8 +26,8 @@ namespace AANDCorp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Nato\\Documents\\Fallo" +
-            "utShelterDB.mdf;Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\FalloutShelte" +
+            "rDB.mdf;Integrated Security=True;Connect Timeout=30")]
         public string FalloutShelterDBConnectionString {
             get {
                 return ((string)(this["FalloutShelterDBConnectionString"]));
