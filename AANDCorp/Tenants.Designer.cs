@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tenants));
             this.tenantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.falloutShelterDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.falloutShelterDBDataSet = new AANDCorp.FalloutShelterDBDataSet();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchByBox = new System.Windows.Forms.ComboBox();
@@ -54,21 +56,29 @@
             this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalRationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dailyRationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.falloutShelterDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.falloutShelterDBDataSet = new AANDCorp.FalloutShelterDBDataSet();
             this.tenantsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.TenantsTableAdapter();
             this.usersTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.UsersTableAdapter();
             this.assignmentsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.AssignmentsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tenantsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tenantsBindingSource
             // 
             this.tenantsBindingSource.DataMember = "Tenants";
             this.tenantsBindingSource.DataSource = this.falloutShelterDBDataSetBindingSource;
+            // 
+            // falloutShelterDBDataSetBindingSource
+            // 
+            this.falloutShelterDBDataSetBindingSource.DataSource = this.falloutShelterDBDataSet;
+            this.falloutShelterDBDataSetBindingSource.Position = 0;
+            // 
+            // falloutShelterDBDataSet
+            // 
+            this.falloutShelterDBDataSet.DataSetName = "FalloutShelterDBDataSet";
+            this.falloutShelterDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // searchBox
             // 
@@ -231,6 +241,8 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -282,16 +294,6 @@
             this.dailyRationsDataGridViewTextBoxColumn.HeaderText = "DailyRations";
             this.dailyRationsDataGridViewTextBoxColumn.Name = "dailyRationsDataGridViewTextBoxColumn";
             // 
-            // falloutShelterDBDataSetBindingSource
-            // 
-            this.falloutShelterDBDataSetBindingSource.DataSource = this.falloutShelterDBDataSet;
-            this.falloutShelterDBDataSetBindingSource.Position = 0;
-            // 
-            // falloutShelterDBDataSet
-            // 
-            this.falloutShelterDBDataSet.DataSetName = "FalloutShelterDBDataSet";
-            this.falloutShelterDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tenantsTableAdapter
             // 
             this.tenantsTableAdapter.ClearBeforeFill = true;
@@ -336,9 +338,9 @@
             this.Text = " Tenants";
             this.Load += new System.EventHandler(this.Tenants_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tenantsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
