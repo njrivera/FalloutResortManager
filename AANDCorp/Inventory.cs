@@ -163,6 +163,8 @@ namespace AANDCorp
                     waterTableAdapter.deleteWater(delWDateBox.Text);
                 getExDefWater();
                 waterTableAdapter.Fill(falloutShelterDBDataSet.Water);
+                if(waterTableAdapter.getCount() < 2)
+                    exDefWater.Text = "";
                 if (waterTableAdapter.getWater(dateWLabel.Text) == 0)
                     saveWater.Enabled = true;
             }
@@ -177,6 +179,8 @@ namespace AANDCorp
                     powerTableAdapter.deletePower(delPDateBox.Text);
                 getExDefPower();
                 powerTableAdapter.Fill(falloutShelterDBDataSet.Power);
+                if(powerTableAdapter.getCount() < 2)
+                    exDefPower.Text = "";
                 if (powerTableAdapter.getPower(datePLabel.Text) == 0)
                     savePower.Enabled = true;
             }
@@ -191,6 +195,8 @@ namespace AANDCorp
                     rationsTableAdapter.deleteRations(delRDateBox.Text);
                 getExDefRations();
                 rationsTableAdapter.Fill(falloutShelterDBDataSet.Rations);
+                if(rationsTableAdapter.getCount() < 2)
+                    exDefRations.Text = "";
                 if (rationsTableAdapter.getRations(dateRLabel.Text) == 0)
                     saveRations.Enabled = true;
             }

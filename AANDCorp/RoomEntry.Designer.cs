@@ -95,7 +95,7 @@
             this.inputButton.Name = "inputButton";
             this.inputButton.Size = new System.Drawing.Size(87, 27);
             this.inputButton.TabIndex = 6;
-            this.inputButton.Text = "Save Entry";
+            this.inputButton.Text = "Save";
             this.inputButton.UseVisualStyleBackColor = true;
             this.inputButton.Click += new System.EventHandler(this.inputButton_Click);
             // 

@@ -202,9 +202,10 @@
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(703, 272);
+            this.closeButton.AutoSize = true;
+            this.closeButton.Location = new System.Drawing.Point(701, 268);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(75, 23);
+            this.closeButton.Size = new System.Drawing.Size(75, 27);
             this.closeButton.TabIndex = 34;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
