@@ -26,7 +26,7 @@
     <ProductName>Fallout Shelter Manager</ProductName>
     <PublisherName>Nate</PublisherName>
     <SuiteName>AANDCorp</SuiteName>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -64,6 +64,11 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>Product Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,19 +96,20 @@
     <Compile Include="Assignments.Designer.cs">
       <DependentUpon>Assignments.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditTenant.cs">
+    <Compile Include="Entries.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditTenant.Designer.cs">
-      <DependentUpon>EditTenant.cs</DependentUpon>
+    <Compile Include="Entries.Designer.cs">
+      <DependentUpon>Entries.cs</DependentUpon>
     </Compile>
     <Compile Include="FalloutShelterDBDataSet.cs">
       <DependentUpon>FalloutShelterDBDataSet.xsd</DependentUpon>
+      <SubType>code</SubType>
     </Compile>
     <Compile Include="FalloutShelterDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>FalloutShelterDBDataSet.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="FoodEntry.cs">
       <SubType>Form</SubType>
@@ -119,11 +125,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rations.cs">
+    <Compile Include="RadEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Rations.Designer.cs">
-      <DependentUpon>Rations.cs</DependentUpon>
+    <Compile Include="RadEntry.Designer.cs">
+      <DependentUpon>RadEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Radiation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Radiation.Designer.cs">
+      <DependentUpon>Radiation.cs</DependentUpon>
     </Compile>
     <Compile Include="RoomEntry.cs">
       <SubType>Form</SubType>
@@ -137,7 +155,6 @@
     <Compile Include="Rooms.Designer.cs">
       <DependentUpon>Rooms.cs</DependentUpon>
     </Compile>
-    <Compile Include="TableOps.cs" />
     <Compile Include="Tenants.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,8 +173,8 @@
     <EmbeddedResource Include="Assignments.resx">
       <DependentUpon>Assignments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditTenant.resx">
-      <DependentUpon>EditTenant.cs</DependentUpon>
+    <EmbeddedResource Include="Entries.resx">
+      <DependentUpon>Entries.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoodEntry.resx">
       <DependentUpon>FoodEntry.cs</DependentUpon>
@@ -174,8 +191,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Rations.resx">
-      <DependentUpon>Rations.cs</DependentUpon>
+    <EmbeddedResource Include="RadEntry.resx">
+      <DependentUpon>RadEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Radiation.resx">
+      <DependentUpon>Radiation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomEntry.resx">
       <DependentUpon>RoomEntry.cs</DependentUpon>
@@ -192,11 +215,12 @@
     <None Include="AANDCorp_TemporaryKey.pfx" />
     <None Include="FalloutShelterDBDataSet.xsc">
       <DependentUpon>FalloutShelterDBDataSet.xsd</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="FalloutShelterDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>FalloutShelterDBDataSet1.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FalloutShelterDBDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="FalloutShelterDBDataSet.xss">
       <DependentUpon>FalloutShelterDBDataSet.xsd</DependentUpon>
@@ -255,12 +279,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FalloutShelterDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="FalloutShelterDB_log.ldf">
       <DependentUpon>FalloutShelterDB.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Product Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

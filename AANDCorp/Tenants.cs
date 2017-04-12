@@ -28,7 +28,7 @@ namespace AANDCorp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (searchBox.Text == "")
+            if (searchBox.Text.Trim() == "")
                 tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
             else
             {
@@ -45,11 +45,6 @@ namespace AANDCorp
                     case "Last Name":
                         tenantsTableAdapter.SearchByLastname(falloutShelterDBDataSet.Tenants, searchBox.Text);
                         break;
-                    case "Room":
-                        int room;
-                        if (int.TryParse(searchBox.Text, out room))
-                            tenantsTableAdapter.SearchByRoom(falloutShelterDBDataSet.Tenants, room);
-                        break;
                     default:
                         break;
                 }
@@ -58,15 +53,25 @@ namespace AANDCorp
 
         private void regTenant_Click(object sender, EventArgs e)
         {
-            if(rgx.IsMatch(firstNBox.Text) && rgx.IsMatch(lastNBox.Text))
+            try
             {
-                FalloutShelterDBDataSet.TenantsDataTable t = tenantsTableAdapter.Register(firstNBox.Text, lastNBox.Text);
-                rationsTableAdapter.register((int)t.Rows[0][t.TidColumn]);
-                tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
+                if (rgx.IsMatch(firstNBox.Text)
+                    && rgx.IsMatch(lastNBox.Text)
+                    && firstNBox.Text.Trim() != ""
+                    && lastNBox.Text.Trim() != "")
+                {
+                    tenantsTableAdapter.Register(firstNBox.Text, lastNBox.Text);
+                    tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
+                }
+                else
+                    throw new Exception("Invalid Name(s)");
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Names must only compose of letters");
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
                 firstNBox.Clear();
                 lastNBox.Clear();
             }
@@ -74,25 +79,25 @@ namespace AANDCorp
 
         private void delTenButton_Click(object sender, EventArgs e)
         {
-            if (tenantsTableAdapter.GetTenant(int.Parse(editTenIdBox.Text)).Count != 0)
-                if (MessageBox.Show("Are you sure?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    usersTableAdapter.delete(editTenIdBox.Text);
-                    rationsTableAdapter.delete(int.Parse(editTenIdBox.Text));
-                    tenantsTableAdapter.delete(int.Parse(editTenIdBox.Text));
-                    tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
-                }
-        }
-
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            EditTenant et = new EditTenant(int.Parse(editTenIdBox.Text), editTenFBox.Text, editTenLBox.Text);
-            et.ShowDialog();
-            tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
+            try
+            {
+                if (editTenIdBox.Text != "")
+                    if (MessageBox.Show("Are you sure?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        assignmentsTableAdapter.removeTenant(int.Parse(editTenIdBox.Text));
+                        tenantsTableAdapter.delete(int.Parse(editTenIdBox.Text));
+                        tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
+                    }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            tenantsTableAdapter.Update(falloutShelterDBDataSet);
             Close();
         }
     }

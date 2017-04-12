@@ -21,29 +21,20 @@ namespace AANDCorp
         {
             try
             {
-
                 FalloutShelterDBDataSet.UsersDataTable userTable = new FalloutShelterDBDataSet.UsersDataTable();
                 usersTableAdapter.GetUser(userTable, userBox.Text, passwordBox.Text);
                 DataRow user = userTable.Rows[0];
-
-                switch (user[userTable.RoleColumn].ToString().Trim())
+                string role = user[userTable.RoleColumn].ToString().Trim();
+                if(role == "admin")
                 {
-                    case "admin":
-                        AdminView av = new AdminView();
-                        av.ShowDialog();
-                        break;
-                    case "watch":
-                        RoomEntry re = new RoomEntry();
-                        re.ShowDialog();
-                        break;
-                    case "fsa":
-                        FoodEntry fe = new FoodEntry();
-                        fe.ShowDialog();
-                        break;
-                    default:
-                        break;
+                    AdminView av = new AdminView();
+                    av.ShowDialog();
                 }
-
+                else
+                {
+                    Entries en = new Entries();
+                    en.ShowDialog();
+                }
             }
             catch
             {
@@ -53,8 +44,8 @@ namespace AANDCorp
             }
             finally
             {
-                userBox.Text = "";
-                passwordBox.Text = "";
+                userBox.Clear();
+                passwordBox.Clear();
             }
         }
     }

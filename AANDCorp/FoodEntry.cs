@@ -12,19 +12,21 @@ namespace AANDCorp
 {
     public partial class FoodEntry : Form
     {
-        private FalloutShelterDBDataSetTableAdapters.RationsTableAdapter RationsTA;
-
         public FoodEntry()
         {
             InitializeComponent();
-            RationsTA = new FalloutShelterDBDataSetTableAdapters.RationsTableAdapter();
         }
 
-        private void entryButton_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                RationsTA.daily(int.Parse(foodBox.Text), int.Parse(tenantBox.Text));
+                tenantsTableAdapter.daily(int.Parse(foodBox.Text), int.Parse(tenantBox.Text));
             }
             catch
             {
@@ -32,7 +34,8 @@ namespace AANDCorp
             }
             finally
             {
-                foodBox.Text = tenantBox.Text = "";
+                foodBox.Clear();
+                tenantBox.Clear();
             }
         }
     }

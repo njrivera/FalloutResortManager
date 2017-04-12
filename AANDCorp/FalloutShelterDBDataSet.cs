@@ -20,6 +20,10 @@
 
 namespace AANDCorp.FalloutShelterDBDataSetTableAdapters
 {
+    partial class RoomsTableAdapter
+    {
+    }
+
     partial class RationsTableAdapter
     {
     }

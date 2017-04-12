@@ -53,15 +53,15 @@ namespace AANDCorp
             int id, room;
             if (int.TryParse(tidAssignBox.Text, out id) && int.TryParse(roomAssignBox.Text, out room))
             {
-                FalloutShelterDBDataSet.AssignmentsDataTable at = assignmentsTableAdapter.GetAssigned(id);
-                if (at.Count == 0
-                    && tenantsTableAdapter.GetTenant(id).Count != 0
-                    && roomsTableAdapter.GetRoom(room).Count != 0)
+                if (tenantsTableAdapter.getTenant(id) == 1
+                    && roomsTableAdapter.getRoom(room) == 1
+                    && assignmentsTableAdapter.getAssign(id) == 0)
                 {
                     assignmentsTableAdapter.assign(id, room);
                     assignmentsTableAdapter.Fill(falloutShelterDBDataSet.Assignments);
                 }
-                else if (at.Count != 0)
+                else if(tenantsTableAdapter.getTenant(id) == 1
+                    && roomsTableAdapter.getRoom(room) == 1)
                 {
                     if (MessageBox.Show("Tenant is already assigned. "
                         + "Would you like to reassign tenant to another room?",
@@ -75,6 +75,8 @@ namespace AANDCorp
                 else
                     MessageBox.Show("Invalid Input");
             }
+            else
+                MessageBox.Show("Invalid Input");
             tidAssignBox.Clear();
             roomAssignBox.Clear();
         }

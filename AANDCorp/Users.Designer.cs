@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +49,6 @@
             this.createUserButton = new System.Windows.Forms.Button();
             this.delUserButton = new System.Windows.Forms.Button();
             this.delUserBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.delRoleBox = new System.Windows.Forms.TextBox();
@@ -124,21 +124,21 @@
             // 
             // crtUserBox
             // 
-            this.crtUserBox.Location = new System.Drawing.Point(394, 84);
+            this.crtUserBox.Location = new System.Drawing.Point(394, 62);
             this.crtUserBox.Name = "crtUserBox";
             this.crtUserBox.Size = new System.Drawing.Size(146, 22);
             this.crtUserBox.TabIndex = 9;
             // 
             // crtPassBox
             // 
-            this.crtPassBox.Location = new System.Drawing.Point(394, 129);
+            this.crtPassBox.Location = new System.Drawing.Point(394, 107);
             this.crtPassBox.Name = "crtPassBox";
             this.crtPassBox.Size = new System.Drawing.Size(146, 22);
             this.crtPassBox.TabIndex = 10;
             // 
             // confPassBox
             // 
-            this.confPassBox.Location = new System.Drawing.Point(394, 174);
+            this.confPassBox.Location = new System.Drawing.Point(394, 152);
             this.confPassBox.Name = "confPassBox";
             this.confPassBox.Size = new System.Drawing.Size(146, 22);
             this.confPassBox.TabIndex = 11;
@@ -146,7 +146,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(429, 64);
+            this.label2.Location = new System.Drawing.Point(429, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 12;
@@ -155,7 +155,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(433, 109);
+            this.label3.Location = new System.Drawing.Point(433, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 13;
@@ -164,7 +164,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(408, 154);
+            this.label4.Location = new System.Drawing.Point(408, 132);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 17);
             this.label4.TabIndex = 14;
@@ -172,7 +172,7 @@
             // 
             // crtRoleBox
             // 
-            this.crtRoleBox.Location = new System.Drawing.Point(422, 219);
+            this.crtRoleBox.Location = new System.Drawing.Point(422, 197);
             this.crtRoleBox.Name = "crtRoleBox";
             this.crtRoleBox.Size = new System.Drawing.Size(88, 22);
             this.crtRoleBox.TabIndex = 34;
@@ -180,7 +180,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(447, 199);
+            this.label6.Location = new System.Drawing.Point(447, 177);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 17);
             this.label6.TabIndex = 36;
@@ -189,7 +189,7 @@
             // createUserButton
             // 
             this.createUserButton.AutoSize = true;
-            this.createUserButton.Location = new System.Drawing.Point(418, 259);
+            this.createUserButton.Location = new System.Drawing.Point(418, 237);
             this.createUserButton.Name = "createUserButton";
             this.createUserButton.Size = new System.Drawing.Size(94, 27);
             this.createUserButton.TabIndex = 37;
@@ -200,7 +200,7 @@
             // delUserButton
             // 
             this.delUserButton.AutoSize = true;
-            this.delUserButton.Location = new System.Drawing.Point(418, 398);
+            this.delUserButton.Location = new System.Drawing.Point(418, 340);
             this.delUserButton.Name = "delUserButton";
             this.delUserButton.Size = new System.Drawing.Size(94, 27);
             this.delUserButton.TabIndex = 38;
@@ -210,27 +210,17 @@
             // 
             // delUserBox
             // 
-            this.delUserBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.delUserBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "Username", true));
-            this.delUserBox.Location = new System.Drawing.Point(464, 324);
+            this.delUserBox.Location = new System.Drawing.Point(450, 284);
             this.delUserBox.Name = "delUserBox";
             this.delUserBox.ReadOnly = true;
-            this.delUserBox.Size = new System.Drawing.Size(100, 15);
+            this.delUserBox.Size = new System.Drawing.Size(100, 22);
             this.delUserBox.TabIndex = 39;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(369, 345);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 17);
-            this.label7.TabIndex = 40;
-            this.label7.Text = "Employee Id:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(381, 324);
+            this.label8.Location = new System.Drawing.Point(367, 287);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 17);
             this.label8.TabIndex = 41;
@@ -239,7 +229,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(417, 366);
+            this.label9.Location = new System.Drawing.Point(403, 315);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(41, 17);
             this.label9.TabIndex = 42;
@@ -247,18 +237,17 @@
             // 
             // delRoleBox
             // 
-            this.delRoleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.delRoleBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usersBindingSource, "Role", true));
-            this.delRoleBox.Location = new System.Drawing.Point(464, 366);
+            this.delRoleBox.Location = new System.Drawing.Point(450, 312);
             this.delRoleBox.Name = "delRoleBox";
             this.delRoleBox.ReadOnly = true;
-            this.delRoleBox.Size = new System.Drawing.Size(100, 15);
+            this.delRoleBox.Size = new System.Drawing.Size(100, 22);
             this.delRoleBox.TabIndex = 44;
             // 
             // closeButton
             // 
             this.closeButton.AutoSize = true;
-            this.closeButton.Location = new System.Drawing.Point(239, 431);
+            this.closeButton.Location = new System.Drawing.Point(418, 398);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(94, 27);
             this.closeButton.TabIndex = 45;
@@ -274,12 +263,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 464);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(573, 437);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.delRoleBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.delUserBox);
             this.Controls.Add(this.delUserButton);
             this.Controls.Add(this.createUserButton);
@@ -294,7 +284,9 @@
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.dataGridView1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Users";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -327,7 +319,6 @@
         private System.Windows.Forms.Button createUserButton;
         private System.Windows.Forms.Button delUserButton;
         private System.Windows.Forms.TextBox delUserBox;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox delRoleBox;

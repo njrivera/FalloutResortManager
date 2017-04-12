@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Assignments));
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.remRoomButton = new System.Windows.Forms.Button();
@@ -45,15 +46,17 @@
             this.tidAssignBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.roomNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tenantsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.TenantsTableAdapter();
-            this.assignmentsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.AssignmentsTableAdapter();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.searchByBox = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.closeButton = new System.Windows.Forms.Button();
+            this.tenantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tenantsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.TenantsTableAdapter();
+            this.assignmentsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.AssignmentsTableAdapter();
             this.roomsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.RoomsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.assignmentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).BeginInit();
@@ -64,24 +67,24 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(305, 215);
+            this.label7.Location = new System.Drawing.Point(533, 212);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 17);
+            this.label7.Size = new System.Drawing.Size(49, 17);
             this.label7.TabIndex = 28;
-            this.label7.Text = "Room";
+            this.label7.Text = "Room:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(292, 160);
+            this.label6.Location = new System.Drawing.Point(500, 140);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 17);
+            this.label6.Size = new System.Drawing.Size(74, 17);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Tenant ID";
+            this.label6.Text = "Tenant ID:";
             // 
             // remRoomButton
             // 
-            this.remRoomButton.Location = new System.Drawing.Point(377, 220);
+            this.remRoomButton.Location = new System.Drawing.Point(556, 237);
             this.remRoomButton.Name = "remRoomButton";
             this.remRoomButton.Size = new System.Drawing.Size(119, 47);
             this.remRoomButton.TabIndex = 26;
@@ -92,7 +95,7 @@
             // remTenButton
             // 
             this.remTenButton.AutoSize = true;
-            this.remTenButton.Location = new System.Drawing.Point(377, 175);
+            this.remTenButton.Location = new System.Drawing.Point(556, 165);
             this.remTenButton.Name = "remTenButton";
             this.remTenButton.Size = new System.Drawing.Size(119, 27);
             this.remTenButton.TabIndex = 25;
@@ -102,12 +105,11 @@
             // 
             // remRoomBox
             // 
-            this.remRoomBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.remRoomBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assignmentsBindingSource, "RoomNum", true));
-            this.remRoomBox.Location = new System.Drawing.Point(284, 235);
+            this.remRoomBox.Location = new System.Drawing.Point(588, 209);
             this.remRoomBox.Name = "remRoomBox";
             this.remRoomBox.ReadOnly = true;
-            this.remRoomBox.Size = new System.Drawing.Size(87, 15);
+            this.remRoomBox.Size = new System.Drawing.Size(87, 22);
             this.remRoomBox.TabIndex = 24;
             // 
             // assignmentsBindingSource
@@ -122,18 +124,17 @@
             // 
             // remTenBox
             // 
-            this.remTenBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.remTenBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assignmentsBindingSource, "Tid", true));
-            this.remTenBox.Location = new System.Drawing.Point(284, 180);
+            this.remTenBox.Location = new System.Drawing.Point(588, 137);
             this.remTenBox.Name = "remTenBox";
             this.remTenBox.ReadOnly = true;
-            this.remTenBox.Size = new System.Drawing.Size(87, 15);
+            this.remTenBox.Size = new System.Drawing.Size(87, 22);
             this.remTenBox.TabIndex = 23;
             // 
             // assignButton
             // 
             this.assignButton.AutoSize = true;
-            this.assignButton.Location = new System.Drawing.Point(337, 104);
+            this.assignButton.Location = new System.Drawing.Point(567, 100);
             this.assignButton.Name = "assignButton";
             this.assignButton.Size = new System.Drawing.Size(75, 27);
             this.assignButton.TabIndex = 22;
@@ -144,7 +145,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(292, 56);
+            this.label5.Location = new System.Drawing.Point(522, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 17);
             this.label5.TabIndex = 21;
@@ -153,7 +154,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(398, 56);
+            this.label4.Location = new System.Drawing.Point(628, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 17);
             this.label4.TabIndex = 18;
@@ -161,14 +162,14 @@
             // 
             // roomAssignBox
             // 
-            this.roomAssignBox.Location = new System.Drawing.Point(377, 76);
+            this.roomAssignBox.Location = new System.Drawing.Point(607, 72);
             this.roomAssignBox.Name = "roomAssignBox";
             this.roomAssignBox.Size = new System.Drawing.Size(87, 22);
             this.roomAssignBox.TabIndex = 20;
             // 
             // tidAssignBox
             // 
-            this.tidAssignBox.Location = new System.Drawing.Point(284, 76);
+            this.tidAssignBox.Location = new System.Drawing.Point(514, 72);
             this.tidAssignBox.Name = "tidAssignBox";
             this.tidAssignBox.Size = new System.Drawing.Size(87, 22);
             this.tidAssignBox.TabIndex = 19;
@@ -178,18 +179,20 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.roomNumDataGridViewTextBoxColumn,
-            this.tidDataGridViewTextBoxColumn});
+            this.Type,
+            this.tidDataGridViewTextBoxColumn,
+            this.name});
             this.dataGridView1.DataSource = this.assignmentsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 43);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 290);
+            this.dataGridView1.Size = new System.Drawing.Size(474, 290);
             this.dataGridView1.TabIndex = 29;
             // 
             // roomNumDataGridViewTextBoxColumn
@@ -199,6 +202,13 @@
             this.roomNumDataGridViewTextBoxColumn.HeaderText = "Room";
             this.roomNumDataGridViewTextBoxColumn.Name = "roomNumDataGridViewTextBoxColumn";
             // 
+            // Type
+            // 
+            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            // 
             // tidDataGridViewTextBoxColumn
             // 
             this.tidDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -206,18 +216,13 @@
             this.tidDataGridViewTextBoxColumn.HeaderText = "Tenant";
             this.tidDataGridViewTextBoxColumn.Name = "tidDataGridViewTextBoxColumn";
             // 
-            // tenantsBindingSource
+            // name
             // 
-            this.tenantsBindingSource.DataMember = "Tenants";
-            this.tenantsBindingSource.DataSource = this.falloutShelterDBDataSet;
-            // 
-            // tenantsTableAdapter
-            // 
-            this.tenantsTableAdapter.ClearBeforeFill = true;
-            // 
-            // assignmentsTableAdapter
-            // 
-            this.assignmentsTableAdapter.ClearBeforeFill = true;
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
             // 
             // label1
             // 
@@ -261,13 +266,26 @@
             // closeButton
             // 
             this.closeButton.AutoSize = true;
-            this.closeButton.Location = new System.Drawing.Point(337, 306);
+            this.closeButton.Location = new System.Drawing.Point(567, 308);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 27);
             this.closeButton.TabIndex = 34;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // tenantsBindingSource
+            // 
+            this.tenantsBindingSource.DataMember = "Tenants";
+            this.tenantsBindingSource.DataSource = this.falloutShelterDBDataSet;
+            // 
+            // tenantsTableAdapter
+            // 
+            this.tenantsTableAdapter.ClearBeforeFill = true;
+            // 
+            // assignmentsTableAdapter
+            // 
+            this.assignmentsTableAdapter.ClearBeforeFill = true;
             // 
             // roomsTableAdapter
             // 
@@ -277,7 +295,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 347);
+            this.ClientSize = new System.Drawing.Size(708, 347);
             this.Controls.Add(this.closeButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchByBox);
@@ -296,6 +314,7 @@
             this.Controls.Add(this.roomAssignBox);
             this.Controls.Add(this.tidAssignBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Assignments";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -336,6 +355,8 @@
         private System.Windows.Forms.Button closeButton;
         private FalloutShelterDBDataSetTableAdapters.RoomsTableAdapter roomsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn tidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
     }
 }

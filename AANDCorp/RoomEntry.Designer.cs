@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomEntry));
             this.roomBox = new System.Windows.Forms.TextBox();
             this.waterBox = new System.Windows.Forms.TextBox();
             this.powerBox = new System.Windows.Forms.TextBox();
@@ -35,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.inputButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.roomsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.RoomsTableAdapter();
             this.SuspendLayout();
             // 
@@ -71,31 +73,42 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 30);
+            this.label2.Location = new System.Drawing.Point(119, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(95, 17);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Water";
+            this.label2.Text = "Water (Liters)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(249, 30);
+            this.label3.Location = new System.Drawing.Point(228, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 17);
+            this.label3.Size = new System.Drawing.Size(89, 17);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Power";
+            this.label3.Text = "Power (kWh)";
             // 
             // inputButton
             // 
             this.inputButton.AutoSize = true;
-            this.inputButton.Location = new System.Drawing.Point(122, 93);
+            this.inputButton.Location = new System.Drawing.Point(78, 95);
             this.inputButton.Name = "inputButton";
             this.inputButton.Size = new System.Drawing.Size(87, 27);
             this.inputButton.TabIndex = 6;
             this.inputButton.Text = "Save Entry";
             this.inputButton.UseVisualStyleBackColor = true;
             this.inputButton.Click += new System.EventHandler(this.inputButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.AutoSize = true;
+            this.closeButton.Location = new System.Drawing.Point(171, 95);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(87, 27);
+            this.closeButton.TabIndex = 7;
+            this.closeButton.Text = "Close";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // roomsTableAdapter
             // 
@@ -106,6 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(333, 146);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.inputButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -114,6 +128,7 @@
             this.Controls.Add(this.waterBox);
             this.Controls.Add(this.roomBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "RoomEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -133,5 +148,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button inputButton;
         private FalloutShelterDBDataSetTableAdapters.RoomsTableAdapter roomsTableAdapter;
+        private System.Windows.Forms.Button closeButton;
     }
 }

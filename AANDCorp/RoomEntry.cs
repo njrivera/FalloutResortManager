@@ -21,7 +21,7 @@ namespace AANDCorp
         {
             try
             {
-                roomsTableAdapter.daily(int.Parse(waterBox.Text), int.Parse(powerBox.Text), int.Parse(roomBox.Text));
+                roomsTableAdapter.daily(float.Parse(waterBox.Text), float.Parse(powerBox.Text), int.Parse(roomBox.Text));
             }
             catch
             {
@@ -29,8 +29,15 @@ namespace AANDCorp
             }
             finally
             {
-                waterBox.Text = powerBox.Text = roomBox.Text = "";
+                waterBox.Clear();
+                powerBox.Clear();
+                roomBox.Clear();
             }
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

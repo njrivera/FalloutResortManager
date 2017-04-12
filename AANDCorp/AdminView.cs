@@ -35,12 +35,6 @@ namespace AANDCorp
             r.ShowDialog();
         }
 
-        private void rationButton_Click(object sender, EventArgs e)
-        {
-            Rations r = new Rations();
-            r.ShowDialog();
-        }
-
         private void userButton_Click(object sender, EventArgs e)
         {
             Users u = new Users();
@@ -50,6 +44,18 @@ namespace AANDCorp
         private void logoutButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void resourceButton_Click(object sender, EventArgs e)
+        {
+            Inventory i = new Inventory();
+            i.ShowDialog();
+        }
+
+        private void radButton_Click(object sender, EventArgs e)
+        {
+            Radiation ra = new Radiation();
+            ra.ShowDialog();
         }
     }
 }

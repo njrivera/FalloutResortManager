@@ -26,7 +26,7 @@ namespace AANDCorp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (searchBox.Text == "")
+            if (searchBox.Text.Trim() == "")
                     usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
             else
                     usersTableAdapter.SearchUser(falloutShelterDBDataSet.Users, searchBox.Text);
@@ -34,22 +34,27 @@ namespace AANDCorp
 
         private void createUserButton_Click(object sender, EventArgs e)
         {
-            if (crtPassBox.Text != confPassBox.Text)
+            try
             {
-                MessageBox.Show("Passwords don't match");
-                resetBoxes();
+                if (crtUserBox.Text.Trim() == "")
+                    throw new Exception("Requires Username");
+                else if (crtPassBox.Text != confPassBox.Text)
+                    throw new Exception("Passwords don't match");
+                else if (crtRoleBox.Text != "admin" && crtRoleBox.Text != "employee")
+                    throw new Exception("Role does not exist");
+                else
+                {
+                    usersTableAdapter.create(crtRoleBox.Text, crtUserBox.Text, crtPassBox.Text);
+                    usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
+                }
             }
-            else if (crtRoleBox.Text != "admin"
-                && crtRoleBox.Text != "watch"
-                && crtRoleBox.Text != "fsa")
+            catch(Exception ex)
             {
-                MessageBox.Show("Role does not exist");
-                resetBoxes();
+                MessageBox.Show(ex.Message);
             }
-            else
+            finally
             {
-                usersTableAdapter.create(crtRoleBox.Text, crtUserBox.Text, crtPassBox.Text);
-                usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
+                resetBoxes();
             }
         }
 
@@ -75,6 +80,7 @@ namespace AANDCorp
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            usersTableAdapter.Update(falloutShelterDBDataSet);
             Close();
         }
     }

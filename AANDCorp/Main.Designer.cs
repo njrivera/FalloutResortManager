@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.userBox = new System.Windows.Forms.TextBox();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,14 +46,14 @@
             // 
             // userBox
             // 
-            this.userBox.Location = new System.Drawing.Point(108, 40);
+            this.userBox.Location = new System.Drawing.Point(194, 214);
             this.userBox.Name = "userBox";
             this.userBox.Size = new System.Drawing.Size(100, 22);
             this.userBox.TabIndex = 0;
             // 
             // passwordBox
             // 
-            this.passwordBox.Location = new System.Drawing.Point(108, 68);
+            this.passwordBox.Location = new System.Drawing.Point(194, 242);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(100, 22);
             this.passwordBox.TabIndex = 1;
@@ -61,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 43);
+            this.label1.Location = new System.Drawing.Point(115, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 2;
@@ -70,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 71);
+            this.label2.Location = new System.Drawing.Point(115, 245);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 3;
@@ -79,7 +80,7 @@
             // loginButton
             // 
             this.loginButton.AutoSize = true;
-            this.loginButton.Location = new System.Drawing.Point(75, 106);
+            this.loginButton.Location = new System.Drawing.Point(161, 280);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 27);
             this.loginButton.TabIndex = 4;
@@ -109,17 +110,21 @@
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(232, 169);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(392, 319);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.userBox);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Fallout Shelter Manager";
             ((System.ComponentModel.ISupportInitialize)(this.shelterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSetBindingSource)).EndInit();
