@@ -31,14 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.litersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.waterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.falloutShelterDBDataSet = new AANDCorp.FalloutShelterDBDataSet();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kWhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.powerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.delWBox = new System.Windows.Forms.Label();
             this.delWDateBox = new System.Windows.Forms.Label();
@@ -64,7 +57,6 @@
             this.powerBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.delRBox = new System.Windows.Forms.Label();
-            this.rationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.exDefRations = new System.Windows.Forms.Label();
             this.delRDateBox = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -74,23 +66,31 @@
             this.saveRations = new System.Windows.Forms.Button();
             this.dateRLabel = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rationBox = new System.Windows.Forms.TextBox();
             this.closeButton = new System.Windows.Forms.Button();
+            this.rationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.falloutShelterDBDataSet = new AANDCorp.FalloutShelterDBDataSet();
+            this.dateDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.powerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kWhDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.waterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.litersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.waterTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.WaterTableAdapter();
             this.powerTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.PowerTableAdapter();
             this.rationsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.RationsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.waterBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rationsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -109,30 +109,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(315, 192);
             this.dataGridView1.TabIndex = 0;
             // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            // 
-            // litersDataGridViewTextBoxColumn
-            // 
-            this.litersDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.litersDataGridViewTextBoxColumn.DataPropertyName = "Liters";
-            this.litersDataGridViewTextBoxColumn.HeaderText = "Liters";
-            this.litersDataGridViewTextBoxColumn.Name = "litersDataGridViewTextBoxColumn";
-            // 
-            // waterBindingSource
-            // 
-            this.waterBindingSource.DataMember = "Water";
-            this.waterBindingSource.DataSource = this.falloutShelterDBDataSet;
-            // 
-            // falloutShelterDBDataSet
-            // 
-            this.falloutShelterDBDataSet.DataSetName = "FalloutShelterDBDataSet";
-            this.falloutShelterDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -148,25 +124,6 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(315, 192);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // dateDataGridViewTextBoxColumn1
-            // 
-            this.dateDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dateDataGridViewTextBoxColumn1.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn1.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
-            // 
-            // kWhDataGridViewTextBoxColumn
-            // 
-            this.kWhDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.kWhDataGridViewTextBoxColumn.DataPropertyName = "kWh";
-            this.kWhDataGridViewTextBoxColumn.HeaderText = "kWh";
-            this.kWhDataGridViewTextBoxColumn.Name = "kWhDataGridViewTextBoxColumn";
-            // 
-            // powerBindingSource
-            // 
-            this.powerBindingSource.DataMember = "Power";
-            this.powerBindingSource.DataSource = this.falloutShelterDBDataSet;
             // 
             // groupBox1
             // 
@@ -196,6 +153,7 @@
             this.delWBox.Name = "delWBox";
             this.delWBox.Size = new System.Drawing.Size(100, 23);
             this.delWBox.TabIndex = 24;
+            this.delWBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // delWDateBox
             // 
@@ -205,6 +163,7 @@
             this.delWDateBox.Name = "delWDateBox";
             this.delWDateBox.Size = new System.Drawing.Size(100, 23);
             this.delWDateBox.TabIndex = 23;
+            this.delWDateBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // exDefWater
             // 
@@ -213,6 +172,7 @@
             this.exDefWater.Name = "exDefWater";
             this.exDefWater.Size = new System.Drawing.Size(92, 23);
             this.exDefWater.TabIndex = 22;
+            this.exDefWater.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // delWButton
             // 
@@ -307,6 +267,7 @@
             this.delPBox.Name = "delPBox";
             this.delPBox.Size = new System.Drawing.Size(100, 23);
             this.delPBox.TabIndex = 26;
+            this.delPBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // exDefPower
             // 
@@ -315,6 +276,7 @@
             this.exDefPower.Name = "exDefPower";
             this.exDefPower.Size = new System.Drawing.Size(92, 23);
             this.exDefPower.TabIndex = 20;
+            this.exDefPower.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // delPDateBox
             // 
@@ -324,6 +286,7 @@
             this.delPDateBox.Name = "delPDateBox";
             this.delPDateBox.Size = new System.Drawing.Size(100, 23);
             this.delPDateBox.TabIndex = 25;
+            this.delPDateBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -427,11 +390,7 @@
             this.delRBox.Name = "delRBox";
             this.delRBox.Size = new System.Drawing.Size(100, 23);
             this.delRBox.TabIndex = 28;
-            // 
-            // rationsBindingSource
-            // 
-            this.rationsBindingSource.DataMember = "Rations";
-            this.rationsBindingSource.DataSource = this.falloutShelterDBDataSet;
+            this.delRBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // exDefRations
             // 
@@ -440,6 +399,7 @@
             this.exDefRations.Name = "exDefRations";
             this.exDefRations.Size = new System.Drawing.Size(92, 23);
             this.exDefRations.TabIndex = 22;
+            this.exDefRations.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // delRDateBox
             // 
@@ -449,6 +409,7 @@
             this.delRDateBox.Name = "delRDateBox";
             this.delRDateBox.Size = new System.Drawing.Size(100, 23);
             this.delRDateBox.TabIndex = 27;
+            this.delRDateBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label9
             // 
@@ -523,20 +484,6 @@
             this.dataGridView3.Size = new System.Drawing.Size(315, 192);
             this.dataGridView3.TabIndex = 0;
             // 
-            // dateDataGridViewTextBoxColumn2
-            // 
-            this.dateDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dateDataGridViewTextBoxColumn2.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn2.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn2.Name = "dateDataGridViewTextBoxColumn2";
-            // 
-            // rationsDataGridViewTextBoxColumn
-            // 
-            this.rationsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.rationsDataGridViewTextBoxColumn.DataPropertyName = "Rations";
-            this.rationsDataGridViewTextBoxColumn.HeaderText = "Rations";
-            this.rationsDataGridViewTextBoxColumn.Name = "rationsDataGridViewTextBoxColumn";
-            // 
             // rationBox
             // 
             this.rationBox.Location = new System.Drawing.Point(423, 33);
@@ -554,6 +501,68 @@
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // rationsBindingSource
+            // 
+            this.rationsBindingSource.DataMember = "Rations";
+            this.rationsBindingSource.DataSource = this.falloutShelterDBDataSet;
+            // 
+            // falloutShelterDBDataSet
+            // 
+            this.falloutShelterDBDataSet.DataSetName = "FalloutShelterDBDataSet";
+            this.falloutShelterDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dateDataGridViewTextBoxColumn2
+            // 
+            this.dateDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateDataGridViewTextBoxColumn2.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn2.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn2.Name = "dateDataGridViewTextBoxColumn2";
+            // 
+            // rationsDataGridViewTextBoxColumn
+            // 
+            this.rationsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rationsDataGridViewTextBoxColumn.DataPropertyName = "Rations";
+            this.rationsDataGridViewTextBoxColumn.HeaderText = "Rations";
+            this.rationsDataGridViewTextBoxColumn.Name = "rationsDataGridViewTextBoxColumn";
+            // 
+            // powerBindingSource
+            // 
+            this.powerBindingSource.DataMember = "Power";
+            this.powerBindingSource.DataSource = this.falloutShelterDBDataSet;
+            // 
+            // dateDataGridViewTextBoxColumn1
+            // 
+            this.dateDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateDataGridViewTextBoxColumn1.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn1.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn1.Name = "dateDataGridViewTextBoxColumn1";
+            // 
+            // kWhDataGridViewTextBoxColumn
+            // 
+            this.kWhDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.kWhDataGridViewTextBoxColumn.DataPropertyName = "kWh";
+            this.kWhDataGridViewTextBoxColumn.HeaderText = "kWh";
+            this.kWhDataGridViewTextBoxColumn.Name = "kWhDataGridViewTextBoxColumn";
+            // 
+            // waterBindingSource
+            // 
+            this.waterBindingSource.DataMember = "Water";
+            this.waterBindingSource.DataSource = this.falloutShelterDBDataSet;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // litersDataGridViewTextBoxColumn
+            // 
+            this.litersDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.litersDataGridViewTextBoxColumn.DataPropertyName = "Liters";
+            this.litersDataGridViewTextBoxColumn.HeaderText = "Liters";
+            this.litersDataGridViewTextBoxColumn.Name = "litersDataGridViewTextBoxColumn";
             // 
             // waterTableAdapter
             // 
@@ -584,18 +593,18 @@
             this.Text = "Inventory";
             this.Load += new System.EventHandler(this.Inventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.waterBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rationsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rationsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waterBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

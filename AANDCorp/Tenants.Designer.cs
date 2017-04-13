@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tenants));
             this.tenantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.falloutShelterDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.falloutShelterDBDataSet = new AANDCorp.FalloutShelterDBDataSet();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
@@ -51,29 +50,26 @@
             this.editTenLBox = new System.Windows.Forms.TextBox();
             this.editTenFBox = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.resetButton = new System.Windows.Forms.Button();
             this.tidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalRationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dailyRationsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.falloutShelterDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tenantsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.TenantsTableAdapter();
             this.usersTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.UsersTableAdapter();
             this.assignmentsTableAdapter = new AANDCorp.FalloutShelterDBDataSetTableAdapters.AssignmentsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.tenantsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tenantsBindingSource
             // 
             this.tenantsBindingSource.DataMember = "Tenants";
             this.tenantsBindingSource.DataSource = this.falloutShelterDBDataSetBindingSource;
-            // 
-            // falloutShelterDBDataSetBindingSource
-            // 
-            this.falloutShelterDBDataSetBindingSource.DataSource = this.falloutShelterDBDataSet;
-            this.falloutShelterDBDataSetBindingSource.Position = 0;
             // 
             // falloutShelterDBDataSet
             // 
@@ -137,6 +133,7 @@
             this.editTenIdBox.ReadOnly = true;
             this.editTenIdBox.Size = new System.Drawing.Size(87, 22);
             this.editTenIdBox.TabIndex = 14;
+            this.editTenIdBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // delTenButton
             // 
@@ -195,9 +192,9 @@
             // closeButton
             // 
             this.closeButton.AutoSize = true;
-            this.closeButton.Location = new System.Drawing.Point(652, 378);
+            this.closeButton.Location = new System.Drawing.Point(735, 392);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(120, 27);
+            this.closeButton.Size = new System.Drawing.Size(96, 27);
             this.closeButton.TabIndex = 17;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
@@ -229,6 +226,7 @@
             this.editTenLBox.ReadOnly = true;
             this.editTenLBox.Size = new System.Drawing.Size(139, 22);
             this.editTenLBox.TabIndex = 20;
+            this.editTenLBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editTenFBox
             // 
@@ -238,6 +236,7 @@
             this.editTenFBox.ReadOnly = true;
             this.editTenFBox.Size = new System.Drawing.Size(139, 22);
             this.editTenFBox.TabIndex = 19;
+            this.editTenFBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dataGridView2
             // 
@@ -257,6 +256,16 @@
             this.dataGridView2.RowTemplate.Height = 24;
             this.dataGridView2.Size = new System.Drawing.Size(578, 377);
             this.dataGridView2.TabIndex = 23;
+            // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(596, 368);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(133, 52);
+            this.resetButton.TabIndex = 36;
+            this.resetButton.Text = "Transfer Daily to Total";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // tidDataGridViewTextBoxColumn
             // 
@@ -294,6 +303,11 @@
             this.dailyRationsDataGridViewTextBoxColumn.HeaderText = "DailyRations";
             this.dailyRationsDataGridViewTextBoxColumn.Name = "dailyRationsDataGridViewTextBoxColumn";
             // 
+            // falloutShelterDBDataSetBindingSource
+            // 
+            this.falloutShelterDBDataSetBindingSource.DataSource = this.falloutShelterDBDataSet;
+            this.falloutShelterDBDataSetBindingSource.Position = 0;
+            // 
             // tenantsTableAdapter
             // 
             this.tenantsTableAdapter.ClearBeforeFill = true;
@@ -310,7 +324,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 432);
+            this.ClientSize = new System.Drawing.Size(843, 432);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -338,9 +353,9 @@
             this.Text = " Tenants";
             this.Load += new System.EventHandler(this.Tenants_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tenantsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.falloutShelterDBDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,5 +391,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalRationsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dailyRationsDataGridViewTextBoxColumn;
         private FalloutShelterDBDataSetTableAdapters.AssignmentsTableAdapter assignmentsTableAdapter;
+        private System.Windows.Forms.Button resetButton;
     }
 }

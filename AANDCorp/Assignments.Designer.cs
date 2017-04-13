@@ -111,6 +111,7 @@
             this.remRoomBox.ReadOnly = true;
             this.remRoomBox.Size = new System.Drawing.Size(87, 22);
             this.remRoomBox.TabIndex = 24;
+            this.remRoomBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // assignmentsBindingSource
             // 
@@ -130,6 +131,7 @@
             this.remTenBox.ReadOnly = true;
             this.remTenBox.Size = new System.Drawing.Size(87, 22);
             this.remTenBox.TabIndex = 23;
+            this.remTenBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // assignButton
             // 

@@ -55,9 +55,8 @@ namespace AANDCorp
                 getExDefWater();
                 waterTableAdapter.Fill(falloutShelterDBDataSet.Water);
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
                 MessageBox.Show("Invalid Entry");
             }
             finally

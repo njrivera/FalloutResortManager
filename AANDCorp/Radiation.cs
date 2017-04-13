@@ -15,6 +15,18 @@ namespace AANDCorp
         public Radiation()
         {
             InitializeComponent();
+            updateLabels();
+        }
+
+        private void Radiation_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'falloutShelterDBDataSet.Radiation' table. You can move, or remove it, as needed.
+            this.radiationTableAdapter.Fill(this.falloutShelterDBDataSet.Radiation);
+
+        }
+
+        private void updateLabels()
+        {
             if (radiationTableAdapter.getCount() > 1)
             {
                 float daily = (float)(radiationTableAdapter.getLastReading() - radiationTableAdapter.getSecondReading());
@@ -28,19 +40,24 @@ namespace AANDCorp
                 else
                     avgLabel.Text = avg.ToString();
             }
-        }
-
-        private void Radiation_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'falloutShelterDBDataSet.Radiation' table. You can move, or remove it, as needed.
-            this.radiationTableAdapter.Fill(this.falloutShelterDBDataSet.Radiation);
-
+            else
+                dailyLabel.Text = avgLabel.Text = "";
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
             radiationTableAdapter.Update(falloutShelterDBDataSet);
             Close();
+        }
+
+        private void delButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                radiationTableAdapter.Delete(DateTime.Parse(delDateBox.Text), float.Parse(delRoentgenBox.Text));
+                updateLabels();
+                radiationTableAdapter.Fill(falloutShelterDBDataSet.Radiation);
+            }
         }
     }
 }

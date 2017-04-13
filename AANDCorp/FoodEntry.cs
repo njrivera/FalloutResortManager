@@ -28,9 +28,10 @@ namespace AANDCorp
             {
                 tenantsTableAdapter.daily(int.Parse(foodBox.Text), int.Parse(tenantBox.Text));
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Invalid Input");
+                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Invalid Input");
             }
             finally
             {

@@ -21,7 +21,9 @@ namespace AANDCorp
         {
             try
             {
-                roomsTableAdapter.daily(float.Parse(waterBox.Text), float.Parse(powerBox.Text), int.Parse(roomBox.Text));
+                float water = (float)Math.Round(decimal.Parse(waterBox.Text), 3);
+                float power = (float)Math.Round(decimal.Parse(powerBox.Text), 3);
+                roomsTableAdapter.daily(water, power, int.Parse(roomBox.Text));
             }
             catch
             {

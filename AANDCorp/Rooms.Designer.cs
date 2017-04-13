@@ -81,6 +81,7 @@
             this.delRoomBox.ReadOnly = true;
             this.delRoomBox.Size = new System.Drawing.Size(87, 22);
             this.delRoomBox.TabIndex = 29;
+            this.delRoomBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // roomsBindingSource
             // 
@@ -245,6 +246,7 @@
             this.delTypeBox.ReadOnly = true;
             this.delTypeBox.Size = new System.Drawing.Size(146, 22);
             this.delTypeBox.TabIndex = 39;
+            this.delTypeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 

@@ -100,5 +100,21 @@ namespace AANDCorp
             tenantsTableAdapter.Update(falloutShelterDBDataSet);
             Close();
         }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Are you sure?", "Confirm update and reset", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    tenantsTableAdapter.update();
+                    tenantsTableAdapter.reset();
+                    tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
+                }
+            }
+            catch
+            {
+            }
+        }
     }
 }

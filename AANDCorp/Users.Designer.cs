@@ -135,6 +135,7 @@
             this.crtPassBox.Name = "crtPassBox";
             this.crtPassBox.Size = new System.Drawing.Size(146, 22);
             this.crtPassBox.TabIndex = 10;
+            this.crtPassBox.UseSystemPasswordChar = true;
             // 
             // confPassBox
             // 
@@ -142,6 +143,7 @@
             this.confPassBox.Name = "confPassBox";
             this.confPassBox.Size = new System.Drawing.Size(146, 22);
             this.confPassBox.TabIndex = 11;
+            this.confPassBox.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -216,6 +218,7 @@
             this.delUserBox.ReadOnly = true;
             this.delUserBox.Size = new System.Drawing.Size(100, 22);
             this.delUserBox.TabIndex = 39;
+            this.delUserBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -243,6 +246,7 @@
             this.delRoleBox.ReadOnly = true;
             this.delRoleBox.Size = new System.Drawing.Size(100, 22);
             this.delRoleBox.TabIndex = 44;
+            this.delRoleBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // closeButton
             // 

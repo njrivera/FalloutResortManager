@@ -30,20 +30,26 @@ namespace AANDCorp
                 assignmentsTableAdapter.Fill(falloutShelterDBDataSet.Assignments);
             else
             {
-                switch (searchByBox.SelectedItem.ToString())
+                try
                 {
-                    case "Tenant Id":
-                        int id;
-                        if (int.TryParse(searchBox.Text, out id))
-                            assignmentsTableAdapter.SearchByTid(falloutShelterDBDataSet.Assignments, id);
-                        break;
-                    case "Room Number":
-                        int room;
-                        if (int.TryParse(searchBox.Text, out room))
-                            assignmentsTableAdapter.SearchByRoom(falloutShelterDBDataSet.Assignments, room);
-                        break;
-                    default:
-                        break;
+                    switch (searchByBox.SelectedItem.ToString())
+                    {
+                        case "Tenant Id":
+                            int id;
+                            if (int.TryParse(searchBox.Text, out id))
+                                assignmentsTableAdapter.SearchByTid(falloutShelterDBDataSet.Assignments, id);
+                            break;
+                        case "Room Number":
+                            int room;
+                            if (int.TryParse(searchBox.Text, out room))
+                                assignmentsTableAdapter.SearchByRoom(falloutShelterDBDataSet.Assignments, room);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                catch
+                {
                 }
             }
         }

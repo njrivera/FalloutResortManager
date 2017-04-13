@@ -28,8 +28,8 @@ namespace AANDCorp
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            int ren;
-            if (int.TryParse(radBox.Text, out ren))
+            float ren;
+            if (float.TryParse(radBox.Text, out ren))
             {
                 radiationTableAdapter.saveRad(dateLabel.Text, ren);
                 saveButton.Enabled = false;
