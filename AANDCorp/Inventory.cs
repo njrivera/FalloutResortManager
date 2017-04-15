@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AANDCorp
+﻿namespace AANDCorp
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class Inventory : Form
     {
         public Inventory()
@@ -35,7 +28,6 @@ namespace AANDCorp
             this.powerTableAdapter.Fill(this.falloutShelterDBDataSet.Power);
             // TODO: This line of code loads data into the 'falloutShelterDBDataSet.Water' table. You can move, or remove it, as needed.
             this.waterTableAdapter.Fill(this.falloutShelterDBDataSet.Water);
-
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -116,7 +108,7 @@ namespace AANDCorp
                 }
                 catch
                 {
-                    exDefWater.Text = "";
+                    exDefWater.Text = string.Empty;
                 }
         }
 
@@ -133,7 +125,7 @@ namespace AANDCorp
                 }
                 catch
                 {
-                    exDefPower.Text = "";
+                    exDefPower.Text = string.Empty;
                 }
         }
 
@@ -150,7 +142,7 @@ namespace AANDCorp
                 }
                 catch
                 {
-                    exDefRations.Text = "";
+                    exDefRations.Text = string.Empty;
                 }
         }
 
@@ -162,12 +154,14 @@ namespace AANDCorp
                     waterTableAdapter.deleteWater(delWDateBox.Text);
                 getExDefWater();
                 waterTableAdapter.Fill(falloutShelterDBDataSet.Water);
-                if(waterTableAdapter.getCount() < 2)
-                    exDefWater.Text = "";
+                if (waterTableAdapter.getCount() < 2)
+                    exDefWater.Text = string.Empty;
                 if (waterTableAdapter.getWater(dateWLabel.Text) == 0)
                     saveWater.Enabled = true;
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -178,12 +172,14 @@ namespace AANDCorp
                     powerTableAdapter.deletePower(delPDateBox.Text);
                 getExDefPower();
                 powerTableAdapter.Fill(falloutShelterDBDataSet.Power);
-                if(powerTableAdapter.getCount() < 2)
-                    exDefPower.Text = "";
+                if (powerTableAdapter.getCount() < 2)
+                    exDefPower.Text = string.Empty;
                 if (powerTableAdapter.getPower(datePLabel.Text) == 0)
                     savePower.Enabled = true;
             }
-            catch { }
+            catch
+            {
+            }
         }
 
         private void delRButton_Click(object sender, EventArgs e)
@@ -194,12 +190,14 @@ namespace AANDCorp
                     rationsTableAdapter.deleteRations(delRDateBox.Text);
                 getExDefRations();
                 rationsTableAdapter.Fill(falloutShelterDBDataSet.Rations);
-                if(rationsTableAdapter.getCount() < 2)
-                    exDefRations.Text = "";
+                if (rationsTableAdapter.getCount() < 2)
+                    exDefRations.Text = string.Empty;
                 if (rationsTableAdapter.getRations(dateRLabel.Text) == 0)
                     saveRations.Enabled = true;
             }
-            catch { }
+            catch
+            {
+            }
         }
     }
 }

@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
-
-namespace AANDCorp
+﻿namespace AANDCorp
 {
+    using System;
+    using System.Windows.Forms;
+    using System.Text.RegularExpressions;
+
     public partial class Tenants : Form
     {
-        Regex rgx = new Regex("^[a-zA-Z]*$");
+        private Regex rgx = new Regex("^[a-zA-Z]*$");
+
         public Tenants()
         {
             InitializeComponent();
@@ -28,7 +22,7 @@ namespace AANDCorp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (searchBox.Text.Trim() == "")
+            if (searchBox.Text.Trim() == string.Empty)
                 tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
             else
             {
@@ -57,8 +51,8 @@ namespace AANDCorp
             {
                 if (rgx.IsMatch(firstNBox.Text)
                     && rgx.IsMatch(lastNBox.Text)
-                    && firstNBox.Text.Trim() != ""
-                    && lastNBox.Text.Trim() != "")
+                    && firstNBox.Text.Trim() != string.Empty
+                    && lastNBox.Text.Trim() != string.Empty)
                 {
                     tenantsTableAdapter.Register(firstNBox.Text, lastNBox.Text);
                     tenantsTableAdapter.Fill(falloutShelterDBDataSet.Tenants);
@@ -81,7 +75,7 @@ namespace AANDCorp
         {
             try
             {
-                if (editTenIdBox.Text != "")
+                if (editTenIdBox.Text != string.Empty)
                     if (MessageBox.Show("Are you sure?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         assignmentsTableAdapter.removeTenant(int.Parse(editTenIdBox.Text));

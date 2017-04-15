@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AANDCorp
+﻿namespace AANDCorp
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class RadEntry : Form
     {
         public RadEntry()
-        { 
+        {
             InitializeComponent();
             dateLabel.Text = DateTime.Today.ToShortDateString();
             if (radiationTableAdapter.getReading(dateLabel.Text) != 0)
                 saveButton.Enabled = false;
-
         }
 
         private void closeButton_Click(object sender, EventArgs e)

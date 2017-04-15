@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AANDCorp
+﻿namespace AANDCorp
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class FoodEntry : Form
     {
         public FoodEntry()
@@ -28,10 +21,9 @@ namespace AANDCorp
             {
                 tenantsTableAdapter.daily(int.Parse(foodBox.Text), int.Parse(tenantBox.Text));
             }
-            catch(Exception ex)
+            catch
             {
-                MessageBox.Show(ex.ToString());
-                //MessageBox.Show("Invalid Input");
+                MessageBox.Show("Invalid Input");
             }
             finally
             {

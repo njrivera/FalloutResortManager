@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AANDCorp
+﻿namespace AANDCorp
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class Users : Form
     {
         public Users()
@@ -21,22 +14,21 @@ namespace AANDCorp
         {
             // TODO: This line of code loads data into the 'falloutShelterDBDataSet.Users' table. You can move, or remove it, as needed.
             this.usersTableAdapter.Fill(this.falloutShelterDBDataSet.Users);
-
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (searchBox.Text.Trim() == "")
-                    usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
+            if (searchBox.Text.Trim() == string.Empty)
+                usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
             else
-                    usersTableAdapter.SearchUser(falloutShelterDBDataSet.Users, searchBox.Text);
+                usersTableAdapter.SearchUser(falloutShelterDBDataSet.Users, searchBox.Text);
         }
 
         private void createUserButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (crtUserBox.Text.Trim() == "")
+                if (crtUserBox.Text.Trim() == string.Empty)
                     throw new Exception("Requires Username");
                 else if (crtPassBox.Text != confPassBox.Text)
                     throw new Exception("Passwords don't match");
@@ -48,7 +40,7 @@ namespace AANDCorp
                     usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -68,7 +60,7 @@ namespace AANDCorp
 
         private void delUserButton_Click(object sender, EventArgs e)
         {
-            if (delUserBox.Text != "")
+            if (delUserBox.Text != string.Empty)
             {
                 if (MessageBox.Show("Are you sure?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {

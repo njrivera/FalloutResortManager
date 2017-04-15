@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AANDCorp
+﻿namespace AANDCorp
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class Rooms : Form
     {
         public Rooms()
@@ -22,13 +15,12 @@ namespace AANDCorp
         {
             // TODO: This line of code loads data into the 'falloutShelterDBDataSet.Rooms' table. You can move, or remove it, as needed.
             this.roomsTableAdapter.Fill(this.falloutShelterDBDataSet.Rooms);
-
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             int room;
-            if (searchBox.Text.Trim() == "")
+            if (searchBox.Text.Trim() == string.Empty)
                 roomsTableAdapter.Fill(falloutShelterDBDataSet.Rooms);
             else if (searchByBox.SelectedItem.ToString() == "Room Number")
             {
@@ -48,7 +40,7 @@ namespace AANDCorp
                     throw new Exception("Invalid Room Number");
                 else if (roomsTableAdapter.getRoom(room) != 0)
                     throw new Exception("Room Already Exists");
-                else if (regTypeBox.Text.Trim() == "")
+                else if (regTypeBox.Text.Trim() == string.Empty)
                     throw new Exception("Requires Type");
                 else
                 {
@@ -56,7 +48,7 @@ namespace AANDCorp
                     roomsTableAdapter.Fill(falloutShelterDBDataSet.Rooms);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

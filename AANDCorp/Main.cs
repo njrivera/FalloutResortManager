@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AANDCorp
+﻿namespace AANDCorp
 {
+    using System;
+    using System.Data;
+    using System.Windows.Forms;
+
     public partial class Main : Form
     {
         public Main()
@@ -25,7 +19,7 @@ namespace AANDCorp
                 usersTableAdapter.GetUser(userTable, userBox.Text, passwordBox.Text);
                 DataRow user = userTable.Rows[0];
                 string role = user[userTable.RoleColumn].ToString().Trim();
-                if(role == "admin")
+                if (role == "admin")
                 {
                     AdminView av = new AdminView();
                     av.ShowDialog();
@@ -39,8 +33,8 @@ namespace AANDCorp
             catch
             {
                 MessageBox.Show("Invalid User Name or Password");
-                userBox.Text = "";
-                passwordBox.Text = "";
+                userBox.Text = string.Empty;
+                passwordBox.Text = string.Empty;
             }
             finally
             {

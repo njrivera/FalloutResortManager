@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace AANDCorp
+﻿namespace AANDCorp
 {
+    using System;
+    using System.Windows.Forms;
+
     public partial class Assignments : Form
     {
         public Assignments()
@@ -26,7 +19,7 @@ namespace AANDCorp
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            if (searchBox.Text == "")
+            if (searchBox.Text == string.Empty)
                 assignmentsTableAdapter.Fill(falloutShelterDBDataSet.Assignments);
             else
             {
@@ -66,12 +59,13 @@ namespace AANDCorp
                     assignmentsTableAdapter.assign(id, room);
                     assignmentsTableAdapter.Fill(falloutShelterDBDataSet.Assignments);
                 }
-                else if(tenantsTableAdapter.getTenant(id) == 1
+                else if (tenantsTableAdapter.getTenant(id) == 1
                     && roomsTableAdapter.getRoom(room) == 1)
                 {
-                    if (MessageBox.Show("Tenant is already assigned. "
-                        + "Would you like to reassign tenant to another room?",
-                        "Confirm reassignment", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (MessageBox.Show(
+                        "Tenant is already assigned. " + "Would you like to reassign tenant to another room?",
+                        "Confirm reassignment",
+                        MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         assignmentsTableAdapter.removeTenant(id);
                         assignmentsTableAdapter.assign(id, room);
