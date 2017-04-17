@@ -2,6 +2,8 @@
 {
     using System;
     using System.Windows.Forms;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public partial class Radiation : Form
     {
@@ -21,8 +23,16 @@
         {
             if (radiationTableAdapter.getCount() > 1)
             {
-                float daily = (float)(radiationTableAdapter.getLastReading() - radiationTableAdapter.getSecondReading());
-                float avg = (float)(radiationTableAdapter.getLastReading() - radiationTableAdapter.getAverage());
+                System.Data.DataTable readingTable = radiationTableAdapter.getReadings();
+                List<float> readings = new List<float>();
+                for (int i = 0; i < readingTable.Rows.Count; i++)
+                    readings.Add((float)readingTable.Rows[i][1]);
+                for (int i = readings.Count - 1; i >= 1; i--)
+                    readings[i] = readings[i] - readings[i - 1];
+                readings.RemoveAt(0);
+                float avg = (float)Math.Round(readings.Average(), 3);
+                float daily = (float)(readings[readings.Count - 1]);
+                
                 if (daily > 0)
                     dailyLabel.Text = "+" + daily.ToString();
                 else

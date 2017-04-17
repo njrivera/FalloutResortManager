@@ -791,17 +791,6 @@ SELECT Date, Roentgen FROM Radiation WHERE (Date = @Date)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FalloutShelterDBConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getLastReading" Modifier="Public" Name="getLastReading" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="getLastReading">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT SUM(Roentgen) AS Expr1
-FROM     (SELECT TOP (1) Date, Roentgen
-                  FROM      Radiation
-                  ORDER BY Date DESC) AS derivedtbl_1</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
               <DbSource ConnectionRef="FalloutShelterDBConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getReading" Modifier="Public" Name="getReading" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="getReading">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -812,15 +801,12 @@ FROM     (SELECT TOP (1) Date, Roentgen
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="FalloutShelterDBConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="getSecondReading" Modifier="Public" Name="getSecondReading" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="getSecondReading">
+              <DbSource ConnectionRef="FalloutShelterDBConnectionString (Settings)" DbObjectName="dbo.Radiation" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="getReadings" GetMethodModifier="Public" GetMethodName="getReadings" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="getReadings" UserSourceName="getReadings">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT SUM(Roentgen) AS Expr1
-FROM     (SELECT TOP (1) Date, Roentgen
-                  FROM      (SELECT TOP (2) Date, Roentgen
-                                     FROM      Radiation
-                                     ORDER BY Date DESC) AS derivedtbl_2
-                  ORDER BY Date) AS derivedtbl_1</CommandText>
+                    <CommandText>SELECT Roentgen
+FROM     Radiation
+ORDER BY Date</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -964,7 +950,7 @@ FROM     (SELECT TOP (1) Date, Liters
   <xs:element name="FalloutShelterDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="FalloutShelterDBDataSet" msprop:Generator_UserDSName="FalloutShelterDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Rooms" msprop:Generator_TableClassName="RoomsDataTable" msprop:Generator_TableVarName="tableRooms" msprop:Generator_RowChangedName="RoomsRowChanged" msprop:Generator_TablePropName="Rooms" msprop:Generator_RowDeletingName="RoomsRowDeleting" msprop:Generator_RowChangingName="RoomsRowChanging" msprop:Generator_RowEvHandlerName="RoomsRowChangeEventHandler" msprop:Generator_RowDeletedName="RoomsRowDeleted" msprop:Generator_RowClassName="RoomsRow" msprop:Generator_UserTableName="Rooms" msprop:Generator_RowEvArgName="RoomsRowChangeEvent">
+        <xs:element name="Rooms" msprop:Generator_TableClassName="RoomsDataTable" msprop:Generator_TableVarName="tableRooms" msprop:Generator_TablePropName="Rooms" msprop:Generator_RowDeletingName="RoomsRowDeleting" msprop:Generator_RowChangingName="RoomsRowChanging" msprop:Generator_RowEvHandlerName="RoomsRowChangeEventHandler" msprop:Generator_RowDeletedName="RoomsRowDeleted" msprop:Generator_UserTableName="Rooms" msprop:Generator_RowChangedName="RoomsRowChanged" msprop:Generator_RowEvArgName="RoomsRowChangeEvent" msprop:Generator_RowClassName="RoomsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RoomNum" msprop:Generator_ColumnVarNameInTable="columnRoomNum" msprop:Generator_ColumnPropNameInRow="RoomNum" msprop:Generator_ColumnPropNameInTable="RoomNumColumn" msprop:Generator_UserColumnName="RoomNum" type="xs:int" />
@@ -982,7 +968,7 @@ FROM     (SELECT TOP (1) Date, Liters
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowClassName="UsersRow" msprop:Generator_UserTableName="Users" msprop:Generator_RowEvArgName="UsersRowChangeEvent">
+        <xs:element name="Users" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_TableVarName="tableUsers" msprop:Generator_TablePropName="Users" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_UserTableName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_RowClassName="UsersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Role" msprop:Generator_ColumnVarNameInTable="columnRole" msprop:Generator_ColumnPropNameInRow="Role" msprop:Generator_ColumnPropNameInTable="RoleColumn" msprop:Generator_UserColumnName="Role">
@@ -1002,7 +988,7 @@ FROM     (SELECT TOP (1) Date, Liters
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Tenants" msprop:Generator_TableClassName="TenantsDataTable" msprop:Generator_TableVarName="tableTenants" msprop:Generator_TablePropName="Tenants" msprop:Generator_RowDeletingName="TenantsRowDeleting" msprop:Generator_RowChangingName="TenantsRowChanging" msprop:Generator_RowEvHandlerName="TenantsRowChangeEventHandler" msprop:Generator_RowDeletedName="TenantsRowDeleted" msprop:Generator_UserTableName="Tenants" msprop:Generator_RowChangedName="TenantsRowChanged" msprop:Generator_RowEvArgName="TenantsRowChangeEvent" msprop:Generator_RowClassName="TenantsRow">
+        <xs:element name="Tenants" msprop:Generator_TableClassName="TenantsDataTable" msprop:Generator_TableVarName="tableTenants" msprop:Generator_RowChangedName="TenantsRowChanged" msprop:Generator_TablePropName="Tenants" msprop:Generator_RowDeletingName="TenantsRowDeleting" msprop:Generator_RowChangingName="TenantsRowChanging" msprop:Generator_RowEvHandlerName="TenantsRowChangeEventHandler" msprop:Generator_RowDeletedName="TenantsRowDeleted" msprop:Generator_RowClassName="TenantsRow" msprop:Generator_UserTableName="Tenants" msprop:Generator_RowEvArgName="TenantsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Firstname" msprop:Generator_ColumnVarNameInTable="columnFirstname" msprop:Generator_ColumnPropNameInRow="Firstname" msprop:Generator_ColumnPropNameInTable="FirstnameColumn" msprop:Generator_UserColumnName="Firstname">
@@ -1025,7 +1011,7 @@ FROM     (SELECT TOP (1) Date, Liters
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Assignments" msprop:Generator_TableClassName="AssignmentsDataTable" msprop:Generator_TableVarName="tableAssignments" msprop:Generator_RowChangedName="AssignmentsRowChanged" msprop:Generator_TablePropName="Assignments" msprop:Generator_RowDeletingName="AssignmentsRowDeleting" msprop:Generator_RowChangingName="AssignmentsRowChanging" msprop:Generator_RowEvHandlerName="AssignmentsRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignmentsRowDeleted" msprop:Generator_RowClassName="AssignmentsRow" msprop:Generator_UserTableName="Assignments" msprop:Generator_RowEvArgName="AssignmentsRowChangeEvent">
+        <xs:element name="Assignments" msprop:Generator_TableClassName="AssignmentsDataTable" msprop:Generator_TableVarName="tableAssignments" msprop:Generator_TablePropName="Assignments" msprop:Generator_RowDeletingName="AssignmentsRowDeleting" msprop:Generator_RowChangingName="AssignmentsRowChanging" msprop:Generator_RowEvHandlerName="AssignmentsRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignmentsRowDeleted" msprop:Generator_UserTableName="Assignments" msprop:Generator_RowChangedName="AssignmentsRowChanged" msprop:Generator_RowEvArgName="AssignmentsRowChangeEvent" msprop:Generator_RowClassName="AssignmentsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RoomNum" msprop:Generator_ColumnVarNameInTable="columnRoomNum" msprop:Generator_ColumnPropNameInRow="RoomNum" msprop:Generator_ColumnPropNameInTable="RoomNumColumn" msprop:Generator_UserColumnName="RoomNum" type="xs:int" />
@@ -1047,7 +1033,7 @@ FROM     (SELECT TOP (1) Date, Liters
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Rations" msprop:Generator_TableClassName="RationsDataTable" msprop:Generator_TableVarName="tableRations" msprop:Generator_RowChangedName="RationsRowChanged" msprop:Generator_TablePropName="Rations" msprop:Generator_RowDeletingName="RationsRowDeleting" msprop:Generator_RowChangingName="RationsRowChanging" msprop:Generator_RowEvHandlerName="RationsRowChangeEventHandler" msprop:Generator_RowDeletedName="RationsRowDeleted" msprop:Generator_RowClassName="RationsRow" msprop:Generator_UserTableName="Rations" msprop:Generator_RowEvArgName="RationsRowChangeEvent">
+        <xs:element name="Rations" msprop:Generator_TableClassName="RationsDataTable" msprop:Generator_TableVarName="tableRations" msprop:Generator_TablePropName="Rations" msprop:Generator_RowDeletingName="RationsRowDeleting" msprop:Generator_RowChangingName="RationsRowChanging" msprop:Generator_RowEvHandlerName="RationsRowChangeEventHandler" msprop:Generator_RowDeletedName="RationsRowDeleted" msprop:Generator_UserTableName="Rations" msprop:Generator_RowChangedName="RationsRowChanged" msprop:Generator_RowEvArgName="RationsRowChangeEvent" msprop:Generator_RowClassName="RationsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" />
@@ -1055,7 +1041,7 @@ FROM     (SELECT TOP (1) Date, Liters
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Power" msprop:Generator_TableClassName="PowerDataTable" msprop:Generator_TableVarName="tablePower" msprop:Generator_TablePropName="Power" msprop:Generator_RowDeletingName="PowerRowDeleting" msprop:Generator_RowChangingName="PowerRowChanging" msprop:Generator_RowEvHandlerName="PowerRowChangeEventHandler" msprop:Generator_RowDeletedName="PowerRowDeleted" msprop:Generator_UserTableName="Power" msprop:Generator_RowChangedName="PowerRowChanged" msprop:Generator_RowEvArgName="PowerRowChangeEvent" msprop:Generator_RowClassName="PowerRow">
+        <xs:element name="Power" msprop:Generator_TableClassName="PowerDataTable" msprop:Generator_TableVarName="tablePower" msprop:Generator_RowChangedName="PowerRowChanged" msprop:Generator_TablePropName="Power" msprop:Generator_RowDeletingName="PowerRowDeleting" msprop:Generator_RowChangingName="PowerRowChanging" msprop:Generator_RowEvHandlerName="PowerRowChangeEventHandler" msprop:Generator_RowDeletedName="PowerRowDeleted" msprop:Generator_RowClassName="PowerRow" msprop:Generator_UserTableName="Power" msprop:Generator_RowEvArgName="PowerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" />
@@ -1063,7 +1049,7 @@ FROM     (SELECT TOP (1) Date, Liters
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Radiation" msprop:Generator_TableClassName="RadiationDataTable" msprop:Generator_TableVarName="tableRadiation" msprop:Generator_TablePropName="Radiation" msprop:Generator_RowDeletingName="RadiationRowDeleting" msprop:Generator_RowChangingName="RadiationRowChanging" msprop:Generator_RowEvHandlerName="RadiationRowChangeEventHandler" msprop:Generator_RowDeletedName="RadiationRowDeleted" msprop:Generator_UserTableName="Radiation" msprop:Generator_RowChangedName="RadiationRowChanged" msprop:Generator_RowEvArgName="RadiationRowChangeEvent" msprop:Generator_RowClassName="RadiationRow">
+        <xs:element name="Radiation" msprop:Generator_TableClassName="RadiationDataTable" msprop:Generator_TableVarName="tableRadiation" msprop:Generator_RowChangedName="RadiationRowChanged" msprop:Generator_TablePropName="Radiation" msprop:Generator_RowDeletingName="RadiationRowDeleting" msprop:Generator_RowChangingName="RadiationRowChanging" msprop:Generator_RowEvHandlerName="RadiationRowChangeEventHandler" msprop:Generator_RowDeletedName="RadiationRowDeleted" msprop:Generator_RowClassName="RadiationRow" msprop:Generator_UserTableName="Radiation" msprop:Generator_RowEvArgName="RadiationRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" />
@@ -1071,7 +1057,7 @@ FROM     (SELECT TOP (1) Date, Liters
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Water" msprop:Generator_TableClassName="WaterDataTable" msprop:Generator_TableVarName="tableWater" msprop:Generator_TablePropName="Water" msprop:Generator_RowDeletingName="WaterRowDeleting" msprop:Generator_RowChangingName="WaterRowChanging" msprop:Generator_RowEvHandlerName="WaterRowChangeEventHandler" msprop:Generator_RowDeletedName="WaterRowDeleted" msprop:Generator_UserTableName="Water" msprop:Generator_RowChangedName="WaterRowChanged" msprop:Generator_RowEvArgName="WaterRowChangeEvent" msprop:Generator_RowClassName="WaterRow">
+        <xs:element name="Water" msprop:Generator_TableClassName="WaterDataTable" msprop:Generator_TableVarName="tableWater" msprop:Generator_RowChangedName="WaterRowChanged" msprop:Generator_TablePropName="Water" msprop:Generator_RowDeletingName="WaterRowDeleting" msprop:Generator_RowChangingName="WaterRowChanging" msprop:Generator_RowEvHandlerName="WaterRowChangeEventHandler" msprop:Generator_RowDeletedName="WaterRowDeleted" msprop:Generator_RowClassName="WaterRow" msprop:Generator_UserTableName="Water" msprop:Generator_RowEvArgName="WaterRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" />
@@ -1112,8 +1098,8 @@ FROM     (SELECT TOP (1) Date, Liters
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Room" msdata:parent="Rooms" msdata:child="Assignments" msdata:parentkey="RoomNum" msdata:childkey="RoomNum" msprop:Generator_UserChildTable="Assignments" msprop:Generator_ChildPropName="GetAssignmentsRows" msprop:Generator_UserRelationName="Room" msprop:Generator_RelationVarName="relationRoom" msprop:Generator_UserParentTable="Rooms" msprop:Generator_ParentPropName="RoomsRow" />
-      <msdata:Relationship name="FK_Assignments_ToTable" msdata:parent="Tenants" msdata:child="Assignments" msdata:parentkey="Tid" msdata:childkey="Tid" msprop:Generator_UserChildTable="Assignments" msprop:Generator_ChildPropName="GetAssignmentsRows" msprop:Generator_UserRelationName="FK_Assignments_ToTable" msprop:Generator_RelationVarName="relationFK_Assignments_ToTable" msprop:Generator_UserParentTable="Tenants" msprop:Generator_ParentPropName="TenantsRow" />
+      <msdata:Relationship name="Room" msdata:parent="Rooms" msdata:child="Assignments" msdata:parentkey="RoomNum" msdata:childkey="RoomNum" msprop:Generator_UserChildTable="Assignments" msprop:Generator_ChildPropName="GetAssignmentsRows" msprop:Generator_UserRelationName="Room" msprop:Generator_ParentPropName="RoomsRow" msprop:Generator_RelationVarName="relationRoom" msprop:Generator_UserParentTable="Rooms" />
+      <msdata:Relationship name="FK_Assignments_ToTable" msdata:parent="Tenants" msdata:child="Assignments" msdata:parentkey="Tid" msdata:childkey="Tid" msprop:Generator_UserChildTable="Assignments" msprop:Generator_ChildPropName="GetAssignmentsRows" msprop:Generator_UserRelationName="FK_Assignments_ToTable" msprop:Generator_ParentPropName="TenantsRow" msprop:Generator_RelationVarName="relationFK_Assignments_ToTable" msprop:Generator_UserParentTable="Tenants" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
