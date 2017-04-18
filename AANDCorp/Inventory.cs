@@ -17,7 +17,7 @@
                 saveRations.Enabled = false;
             getExDefWater();
             getExDefPower();
-            getExDefWater();
+            getExDefRations();
         }
 
         private void Inventory_Load(object sender, EventArgs e)
