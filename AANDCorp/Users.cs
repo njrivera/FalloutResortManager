@@ -5,9 +5,12 @@
 
     public partial class Users : Form
     {
-        public Users()
+        private string user;
+
+        public Users(string user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void Users_Load(object sender, EventArgs e)
@@ -64,8 +67,13 @@
             {
                 if (MessageBox.Show("Are you sure?", "Confirm delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    usersTableAdapter.delete(delUserBox.Text);
-                    usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
+                    if (delUserBox.Text == user)
+                        MessageBox.Show("Can't delete current user!");
+                    else
+                    {
+                        usersTableAdapter.delete(delUserBox.Text);
+                        usersTableAdapter.Fill(falloutShelterDBDataSet.Users);
+                    }
                 }
             }
         }

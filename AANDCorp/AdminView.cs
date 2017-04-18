@@ -5,9 +5,12 @@
 
     public partial class AdminView : Form
     {
-        public AdminView()
+        private string user;
+
+        public AdminView(string user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -30,7 +33,7 @@
 
         private void userButton_Click(object sender, EventArgs e)
         {
-            Users u = new Users();
+            Users u = new Users(user);
             u.ShowDialog();
         }
 

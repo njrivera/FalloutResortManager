@@ -21,7 +21,7 @@
                 string role = user[userTable.RoleColumn].ToString().Trim();
                 if (role == "admin")
                 {
-                    AdminView av = new AdminView();
+                    AdminView av = new AdminView(user[userTable.UsernameColumn].ToString());
                     av.ShowDialog();
                 }
                 else
