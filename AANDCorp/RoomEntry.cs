@@ -16,6 +16,8 @@
             {
                 float water = (float)Math.Round(decimal.Parse(waterBox.Text), 3);
                 float power = (float)Math.Round(decimal.Parse(powerBox.Text), 3);
+                if(roomsTableAdapter.getRoom(int.Parse(roomBox.Text)) == 0)
+                    throw new Exception();
                 roomsTableAdapter.daily(water, power, int.Parse(roomBox.Text));
             }
             catch

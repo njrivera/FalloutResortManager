@@ -19,6 +19,8 @@
         {
             try
             {
+                if(tenantsTableAdapter.getTenant(int.Parse(tenantBox.Text)) == 0)
+                    throw new Exception();
                 tenantsTableAdapter.daily(int.Parse(foodBox.Text), int.Parse(tenantBox.Text));
             }
             catch

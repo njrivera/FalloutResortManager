@@ -102,7 +102,7 @@
                 {
                     float w = (float)(waterTableAdapter.getWaterSum() - (waterTableAdapter.getLiterFirst() - waterTableAdapter.getLiterLast()));
                     if (w > 0)
-                        exDefWater.Text = '+' + w.ToString();
+                        exDefWater.Text = '+' + Math.Round(w, 3).ToString();
                     else
                         exDefWater.Text = w.ToString();
                 }
@@ -119,7 +119,7 @@
                 {
                     float p = (float)(powerTableAdapter.getPowerSum() - (powerTableAdapter.getkWhFirst() - powerTableAdapter.getkWhLast()));
                     if (p > 0)
-                        exDefPower.Text = '+' + p.ToString();
+                        exDefPower.Text = '+' + Math.Round(p, 3).ToString();
                     else
                         exDefPower.Text = p.ToString();
                 }

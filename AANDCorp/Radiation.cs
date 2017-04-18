@@ -31,7 +31,7 @@
                     readings[i] = readings[i] - readings[i - 1];
                 readings.RemoveAt(0);
                 float avg = (float)Math.Round(readings.Average(), 3);
-                float daily = (float)(readings[readings.Count - 1]);
+                float daily = (float)Math.Round(readings[readings.Count - 1]);
                 
                 if (daily > 0)
                     dailyLabel.Text = "+" + daily.ToString();
